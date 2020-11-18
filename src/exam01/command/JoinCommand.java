@@ -27,28 +27,30 @@ public class JoinCommand implements Command {
             request.setAttribute("nextNum", nextNum);
             return "template.jsp?pp=join";  //초기 인덱스 페이직를 보여주는 부분
         }else {
-            int num = Integer.parseInt(request.getParameter("num"));
-            String name = request.getParameter("name");
-            String tel = request.getParameter("tel");
-            String address = request.getParameter("address");
-            
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-            Date joinDate = null;
-            try {
-                joinDate = formatter.parse(request.getParameter("joinDate"));
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-            
-            String grade = request.getParameter("grade");
-            int city = Integer.parseInt(request.getParameter("city"));
-            
-            Member member = new Member(num, name, tel, address, joinDate, grade, city);
-            
+            Member member = getMember(request);
             System.out.println("member > " + member);
             memberDao.insertMember(member);
             return "template.jsp?pp=join";
         }
+    }
+
+    private Member getMember(HttpServletRequest request) {
+        int num = Integer.parseInt(request.getParameter("num"));
+        String name = request.getParameter("name");
+        String tel = request.getParameter("tel");
+        String address = request.getParameter("address");
+        
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date joinDate = null;
+        try {
+            joinDate = formatter.parse(request.getParameter("joinDate"));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        
+        String grade = request.getParameter("grade");
+        int city = Integer.parseInt(request.getParameter("city"));
+        return new Member(num, name, tel, address, joinDate, grade, city);
     }
 
 }
