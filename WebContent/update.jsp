@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 	<h2>홈쇼핑 회원 정보 수정</h2>
 	<form action="<c:url value="/update.do" />" method="post" id="join">
 		<table border="1">
@@ -34,7 +33,7 @@
 		    </tr>
 		</table>
 		<div class="btn_group">
-		    <button type="submit" id="update">수정</button>
+		    <button type="submit" onclick="update();return false">수정</button>
 		    <button type="button" onclick="history.back();">목록</button>
 		</div>
 	</form>

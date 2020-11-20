@@ -1,6 +1,3 @@
-/**
- * 
- */
 function go_save() {
     if ($('#name').val().length == 0) {
         alert("이름을 입력해 주세요.");
