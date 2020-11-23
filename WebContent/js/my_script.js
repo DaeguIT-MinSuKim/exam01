@@ -22,17 +22,43 @@ function checkValid(){
     }
 }
 
+function add(msg){
+    var contextPath = "/exam01";
+    
+    var newMember = {
+        num  :  document.getElementById("num").value,
+        name : document.getElementById("name").value,
+        tel  : document.getElementById("tel").value,
+        address :  document.getElementById("address").value,
+        joinDate:  document.getElementById("joinDate").value,
+        grade: document.getElementById("grade").value,
+        city:  document.getElementById("city").value,
+    };
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function(res) {
+          if (this.readyState == 1 ) {
+                alert("회원정보가 " + msg + "되었습니다.");
+                window.location.href = contextPath + "/list.do";
+          } 
+    };
+    
+    xhttp.open("POST", contextPath+"/join.do", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send(newMember);
+}
+
 function reg(){
     if (checkValid()){
-           document.getElementById("join").submit();
-           alert("회원정보가 등록되었습니다.");
+        add("등록");
+        document.getElementById("join").submit();
     }
 }
 
 function update(){
     if (checkValid()){
-           document.getElementById("join").submit();
-           alert("회원정보수정이 완료되었습니다.");
+        add("수정");
+        document.getElementById("join").submit();
     }
 }
 

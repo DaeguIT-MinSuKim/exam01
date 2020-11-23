@@ -43,3 +43,29 @@ $(function(){
         }
     });
 });
+
+/*
+    var contextPath = "<%= request.getContextPath()%>";
+    
+    var newMember = {
+        num  :  document.getElementById("num").value,
+        name : document.getElementById("name").value,
+        tel  : document.getElementById("tel").value,
+        address :  document.getElementById("address").value,
+        joinDate:  document.getElementById("joinDate").value,
+        grade: document.getElementById("grade").value,
+        city:  document.getElementById("city").value,
+    };
+    
+    $.ajax({
+        type  : "post",
+        url   : contextPath+"/join.do",
+        cache : false,
+        data  : newMember,
+        complete : function(data) {
+            alert("추가되었습니다." + data);
+            window.location.href = contextPath + "/list.do";
+        }
+    });
+    
+*/

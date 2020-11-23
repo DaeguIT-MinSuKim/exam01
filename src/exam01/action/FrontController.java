@@ -52,7 +52,7 @@ public class FrontController extends HttpServlet {
                 String url = viewPage.substring(9);
                 System.out.println("url > " + url);
                 response.sendRedirect(url);
-            }else {
+            } else {
                 request.getRequestDispatcher(viewPage).forward(request, response);
             }
         }

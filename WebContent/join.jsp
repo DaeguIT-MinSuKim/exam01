@@ -7,7 +7,7 @@
 	    <table border="1">
 	        <tr>
 	            <td>회원번호(자동발생)</td>
-	            <td><input type="text" name="num" value="${nextNum }" readonly="readonly"></td>
+	            <td><input type="text" id="num" name="num" value="${nextNum }" readonly="readonly"></td>
 	        </tr>
 	        <tr>
 	            <td>회원성명</td>
@@ -35,7 +35,7 @@
 	        </tr>
 	    </table>
 	    <div class="btn_group">
-	        <button type="submit" onclick="reg();return false">등록</button>
+            <button type="submit" onclick="reg();return false">등록</button>
 	        <button type="button" onclick="location='list.do'">조회</button>
 	    </div>
     </form>

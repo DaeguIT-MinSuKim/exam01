@@ -22,6 +22,7 @@ public class JoinCommand implements Command {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
         if (request.getMethod().equalsIgnoreCase("get")) {
             int nextNum = memberDao.nextNum();
             request.setAttribute("nextNum", nextNum);
@@ -29,8 +30,9 @@ public class JoinCommand implements Command {
         }else {
             Member member = getMember(request);
             System.out.println("member > " + member);
-            memberDao.insertMember(member);
-            return "template.jsp?pp=join";
+            int res = memberDao.insertMember(member);
+            response.getWriter().write(res);
+            return "redirect:list.do";
         }
     }
 
